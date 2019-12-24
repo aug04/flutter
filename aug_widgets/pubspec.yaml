@@ -1,6 +1,6 @@
 name: aug_widgets
-description: A Flutter package has my custom widgets
-version: 0.0.1
+description: A Flutter package has my custom widgets, included many kind of widgets to support development faster and easily.
+version: 0.1.0
 author: Doan Manh Hung <myangelshh@gmail.com>
 homepage: https://github.com/aug04/flutter/aug_widgets
 
