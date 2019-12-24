@@ -53,7 +53,9 @@ class _ExpandableTextState extends State<ExpandableText> {
               ? GestureDetector(
                   onTap: _handleOnTap,
                   child: Text(
-                    _isExpanded ? widget.showLessText ?? 'show less' : widget.showMoreText ?? '...',
+                    _isExpanded
+                        ? widget.showLessText ?? 'show less'
+                        : widget.showMoreText ?? '...',
                     style: widget.style.merge(
                       TextStyle(
                         color: Colors.blue,

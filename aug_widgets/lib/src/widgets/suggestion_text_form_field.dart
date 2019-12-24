@@ -37,7 +37,8 @@ class _SuggestionTextFormFieldState extends State<SuggestionTextFormField> {
 
   SuggestionTextController _controller;
 
-  SuggestionTextController get _effectiveController => widget.controller ?? _controller;
+  SuggestionTextController get _effectiveController =>
+      widget.controller ?? _controller;
 
   @override
   void initState() {
@@ -59,7 +60,8 @@ class _SuggestionTextFormFieldState extends State<SuggestionTextFormField> {
 
     _textEditingController = TextEditingController();
     _textEditingController.addListener(_handleTextInsideChanged);
-    if (!widget.multipleValue && !Utils.isNullOrEmpty(_effectiveController.text)) {
+    if (!widget.multipleValue &&
+        !Utils.isNullOrEmpty(_effectiveController.text)) {
       _textEditingController.text = _effectiveController.text;
     }
 
@@ -79,14 +81,17 @@ class _SuggestionTextFormFieldState extends State<SuggestionTextFormField> {
   void didUpdateWidget(SuggestionTextFormField oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.controller == null && oldWidget.controller != null)
-      _controller = SuggestionTextController.fromValue(oldWidget.controller.value);
-    else if (widget.controller != null && oldWidget.controller == null) _controller = null;
+      _controller =
+          SuggestionTextController.fromValue(oldWidget.controller.value);
+    else if (widget.controller != null && oldWidget.controller == null)
+      _controller = null;
   }
 
   void _handleTextInsideChanged() {
     final String value = _textEditingController.text;
 
-    if (_effectiveController.value != null && !_effectiveController.value.contains(value)) {
+    if (_effectiveController.value != null &&
+        !_effectiveController.value.contains(value)) {
       _effectiveController.setFirst(value);
     } else {
       _effectiveController.add(value);
@@ -129,7 +134,8 @@ class _SuggestionTextFormFieldState extends State<SuggestionTextFormField> {
   void _setControllerValue(String value) {
     if (_effectiveController.value == null) _effectiveController.value = [];
     if (_effectiveController.value.isEmpty) _effectiveController.value.add('');
-    if (_effectiveController.value[0] == value) _effectiveController.value[0] = '';
+    if (_effectiveController.value[0] == value)
+      _effectiveController.value[0] = '';
     _effectiveController.add(value);
     setState(() => _items = _effectiveController.value ?? []);
   }
@@ -193,8 +199,8 @@ class _SuggestionTextFormFieldState extends State<SuggestionTextFormField> {
                         onPressed: () {
                           FocusScope.of(context).requestFocus(FocusNode());
                           _setControllerValue(_textEditingController.text);
-                          WidgetsBinding.instance
-                              .addPostFrameCallback((_) => _textEditingController.clear());
+                          WidgetsBinding.instance.addPostFrameCallback(
+                              (_) => _textEditingController.clear());
                         },
                         icon: Icon(
                           Icons.add,
